@@ -21,6 +21,7 @@ Partial Class MainWindow
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainWindow))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -47,6 +48,8 @@ Partial Class MainWindow
         Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Sp1 = New System.IO.Ports.SerialPort(Me.components)
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -319,7 +322,6 @@ Partial Class MainWindow
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(100, 24)
         Me.TextBox7.TabIndex = 33
-        Me.TextBox7.Text = "8888"
         '
         'Button8
         '
@@ -330,12 +332,25 @@ Partial Class MainWindow
         Me.Button8.Text = "Button8"
         Me.Button8.UseVisualStyleBackColor = True
         '
+        'Sp1
+        '
+        Me.Sp1.BaudRate = 115200
+        Me.Sp1.PortName = "COM5"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(743, 95)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(129, 24)
+        Me.TextBox8.TabIndex = 35
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(1547, 854)
+        Me.Controls.Add(Me.TextBox8)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.TextBox7)
         Me.Controls.Add(Me.MaterialLabel7)
@@ -398,4 +413,6 @@ Partial Class MainWindow
     Friend WithEvents MaterialLabel7 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Button8 As Button
+    Friend WithEvents TextBox8 As TextBox
+    Public WithEvents Sp1 As IO.Ports.SerialPort
 End Class
